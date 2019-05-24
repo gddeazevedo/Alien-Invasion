@@ -10,7 +10,8 @@ from pygame.sprite import Group
 
 def run_game():
     #Starts the game and creates an object for the screen
-    pygame.init() #init() initiates the configurations
+    #init() initiates the configurations
+    pygame.init() 
 
     game_set = GameSettings()
 
