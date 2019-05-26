@@ -13,6 +13,9 @@ class GameStats:
         
         #starts the alien invasion in a inactive state
         self.game_active = False
+        
+        #a flag to know if the alien invasion is paused or not
+        self.game_paused = False
 
         #The hight score can never be reset
         if self.file.read_file():

@@ -16,28 +16,28 @@ def save_high_score_in_file(stats):
 
 def check_keyup_events(event, ship):
     """Checks if some key of the keyboard is not pressed"""
-    if event.key == pygame.K_RIGHT:
+    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
         ship.moving_right = False
-    elif event.key == pygame.K_LEFT:
+    elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
         ship.moving_left = False
 
 
 def check_keydown_events(event, game_set, stats, screen, ship, aliens, bullets, sb, play_button):
     """Checks if some key of the keyboard is pressed"""
-    if event.key == pygame.K_RIGHT:
+    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
         ship.moving_right = True
-    elif event.key == pygame.K_LEFT:
+    elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
         ship.moving_left = True
-    elif event.key == pygame.K_SPACE:
+    elif event.key == pygame.K_SPACE or event.key == pygame.K_f:
         fire_bullets(game_set, screen, ship, bullets)
     elif event.key == pygame.K_q:
         save_high_score_in_file(stats)
         sys.exit()
-    elif event.key == pygame.K_p and not stats.game_active:
+    elif event.key == pygame.K_p and not stats.game_active and not stats.game_paused:
         start_game(game_set, stats, screen, ship, aliens, bullets, sb)
-    elif event.key == pygame.K_ESCAPE:
+    elif event.key == pygame.K_ESCAPE and not stats.game_paused and stats.game_active:
         pause_game(stats, play_button)
-    elif event.key == pygame.K_r:
+    elif event.key == pygame.K_r and stats.game_paused and not stats.game_active:
         continue_game(stats, play_button)
 
 
@@ -66,6 +66,7 @@ def check_events(game_set, stats, screen, ship, aliens, bullets, play_button, sb
 
 def continue_game(stats, play_button):
     """Continues the paused game"""
+    stats.game_paused = False
     stats.game_active = True
     pygame.mouse.set_visible(False)
     play_button.prep_msg('Play! press "p" to start')
@@ -73,6 +74,7 @@ def continue_game(stats, play_button):
 
 def pause_game(stats, play_button):
     """Pauses the game"""
+    stats.game_paused = True
     stats.game_active = False
     pygame.mouse.set_visible(True)
     play_button.prep_msg('Paused! click "r" to continue')
