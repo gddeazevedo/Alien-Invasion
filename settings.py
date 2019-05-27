@@ -7,7 +7,7 @@ class GameSettings:
         #Screen configurations
         self.screen_width = 1200
         self.screen_height = 700
-        self.bg_color = (30, 30, 30)
+        self.bg_color = (0, 0, 0)
 
         #Ship configurations
         self.ship_limit = 3
@@ -15,7 +15,7 @@ class GameSettings:
         #Bullet configurations
         self.bullet_width = 3
         self.bullet_height = 15
-        self.bullet_color = (255, 200, 0)
+        self.bullet_color = (100, 220, 0)
         self.bullets_allowed = 3
         
         #Aliens configurations

@@ -11,7 +11,7 @@ class Ship(Sprite):
         self.game_set = game_set
         
         #Loads the image of the spaceship and gets its rect
-        self.image = pygame.image.load('images/ship.bmp') #returns a surface that represents the ship
+        self.image = pygame.image.load('images/ship.png') #returns a surface that represents the ship
         self.rect = self.image.get_rect()
         
         #Gets the rect of the screen

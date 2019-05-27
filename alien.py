@@ -12,7 +12,7 @@ class Alien(Sprite):
         self.game_set = game_set
 
         #Charges the image of the alien and defines its rect attribute
-        self.image = pygame.image.load('images/alien.bmp')
+        self.image = pygame.image.load('images/alien.png')
         self.rect = self.image.get_rect()
 
         #Initiates each new alien next to the top left corner of the screen
